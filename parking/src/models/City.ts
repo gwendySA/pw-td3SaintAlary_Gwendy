@@ -2,7 +2,7 @@ import { toSlug } from "../utils/toSlug";
 import {generateRandomNumberId} from "../utils/generateRandomNumberld";
 import { GPS } from "../types/GPS";
 
-export class City {
+export default class City {
     id: number;
     name: string;
     slug: string;
