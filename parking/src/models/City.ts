@@ -19,4 +19,9 @@ export default class City {
         this.location = { latitude, longitude };
     }
 
+    addParking(parkingId: number): void {
+        if (!this.parkingIds.includes(parkingId)) {
+            this.parkingIds.push(parkingId);
+        }
+    }
 }
