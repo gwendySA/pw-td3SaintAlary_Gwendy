@@ -13,7 +13,6 @@ const chaine = "JE SUis un cas d'école";
 // Exemple d'utilisation
 const slug = toSlug(chaine);
 console.log(slug);
-const id = generateRandomNumberId();
 console.log(parkings);
 console.log(cities);
 export default app
