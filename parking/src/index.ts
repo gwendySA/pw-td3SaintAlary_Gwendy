@@ -1,19 +1,25 @@
 import { Hono } from 'hono'
-import {toSlug} from "./utils/toSlug";
-import {generateRandomNumberId} from "./utils/generateRandomNumberld";
-import {cities, parkings} from "./data/staticDatabase";
+import { serveStatic } from 'hono/bun'
+import { toSlug } from "./utils/toSlug"
+import { generateRandomNumberId } from "./utils/generateRandomNumberld"
+import { cities, parkings } from "./data/staticDatabase"
+import { HomeController } from './controllers/HomeController'
 
 const app = new Hono()
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
+// Serve static files
+app.use('/static/*', serveStatic({ root: './' }))
 
-})
-const chaine = "JE SUis un cas d'école";
-// Exemple d'utilisation
-const slug = toSlug(chaine);
-console.log(slug);
-console.log(parkings);
-console.log(cities);
+// Routes
+app.get('/', HomeController.index)
+
+// Example usage of toSlug
+const chaine = "JE SUis un cas d'école"
+const slug = toSlug(chaine)
+console.log(slug)
+
+// Logging data
+console.log(parkings)
+console.log(cities)
+
 export default app
-
