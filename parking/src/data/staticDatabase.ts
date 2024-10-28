@@ -19,7 +19,6 @@ export const parkings: Parking[] = [
     new Parking("G", cities[4].id, {latitude: 54.9738474, longitude: -1.6131572}, 90, 3.20),
 ];
 
-// Add parking IDs to corresponding cities
 parkings.forEach(parking => {
     const city = cities.find(city => city.id === parking.city_id);
     if (city) {

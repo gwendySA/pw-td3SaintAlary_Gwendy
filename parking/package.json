@@ -9,7 +9,7 @@
     "bun-types": "latest"
   },
   "dependencies": {
-    "hono": "^3.10.0"
+    "hono": "^4.6.6"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

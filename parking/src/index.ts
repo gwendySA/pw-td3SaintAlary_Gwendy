@@ -1,17 +1,24 @@
 import { Hono } from 'hono'
 import { serveStatic } from 'hono/bun'
 import { toSlug } from "./utils/toSlug"
-import { generateRandomNumberId } from "./utils/generateRandomNumberld"
-import { cities, parkings } from "./data/staticDatabase"
+import { cities, parkings } from "./data/staticDatabase"//importer les tableaux parkings et cities
 import { HomeController } from './controllers/HomeController'
+//import { trimTrailingSlash } from 'hono/trailing-slash'
+import { ReadAllCitiesController } from './controllers/ReadAllCitiesController'
+import cityRoutes from "./routes/cityRoutes";
+import parkingRoutes from "./routes/parkingRoutes";
+
 
 const app = new Hono()
 
-// Serve static files
 app.use('/static/*', serveStatic({ root: './' }))
-
+//app.use('*', trimTrailingSlash())
+app.get('/', HomeController.handle)
+app.get('/cities', ReadAllCitiesController.handle)
 // Routes
-app.get('/', HomeController.index)
+app.route('/cities', cityRoutes)
+app.route('/parkings', parkingRoutes)
+
 
 // Example usage of toSlug
 const chaine = "JE SUis un cas d'école"
