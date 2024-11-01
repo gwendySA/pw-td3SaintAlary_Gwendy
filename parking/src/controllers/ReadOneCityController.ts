@@ -9,8 +9,10 @@ export class ReadOneCityController {
         const slug = c.req.param('slug')
         const city = cities.find(city => city.slug === slug)
 
+        //fonction  inspirée d'internet
         if (!city) {
-            return c.notFound()
+            c.status(404); //HTTP 404
+            return c.json({ error: 'Ville non trouvée' });
         }
 
         // Récupérer les parkings associés à la ville

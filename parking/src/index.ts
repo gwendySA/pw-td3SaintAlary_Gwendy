@@ -19,14 +19,13 @@ app.get('/cities', ReadAllCitiesController.handle)
 app.route('/cities', cityRoutes)
 app.route('/parkings', parkingRoutes)
 
+// toSlug
+const chaine = "JE SUis un cas d'école";
+const slug = toSlug(chaine);
+console.log(slug);
 
-// Example usage of toSlug
-const chaine = "JE SUis un cas d'école"
-const slug = toSlug(chaine)
-console.log(slug)
-
-// Logging data
-console.log(parkings)
-console.log(cities)
-
-export default app
+// Log data
+console.log(parkings);
+console.log(cities);
+// Gestion de l'erreur a faire (étape 2.4)
+export default app;

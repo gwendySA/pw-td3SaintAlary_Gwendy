@@ -29,10 +29,18 @@ export class ParkingController {
         const id = parseInt(c.req.param('id'))
         const parking = parkings.find(p => p.id === id)
 
-        if (!parking) {
-            return c.notFound()
-        }
+       // for (let i = 0; i < parkings.length; i++) {
+           // if (parkings[i].id === id) {
+               // parking = parkings[i];
+              //  break;
+           // }
+       // }
 
+        //fonction inspirée de forum internet
+        if (!parking) {
+            c.status(404); // HTTP 404
+            return c.json({ error: 'Parking non trouvé' });
+        }
         const content = html`
       <h2>${parking.name}</h2>
       <p>Nombre de places : ${parking.numberOfSpots}</p>
