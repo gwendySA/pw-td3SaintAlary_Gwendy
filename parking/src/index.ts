@@ -7,6 +7,7 @@ import { HomeController } from './controllers/HomeController'
 import { ReadAllCitiesController } from './controllers/ReadAllCitiesController'
 import cityRoutes from "./routes/cityRoutes";
 import parkingRoutes from "./routes/parkingRoutes";
+import {initializeDatabase} from "./data/parking.sqlite";
 
 
 const app = new Hono()
@@ -28,4 +29,6 @@ console.log(slug);
 console.log(parkings);
 console.log(cities);
 // Gestion de l'erreur a faire (étape 2.4)
+initializeDatabase();
+
 export default app;

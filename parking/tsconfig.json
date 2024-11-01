@@ -3,7 +3,9 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "types": ["hono"],
+    "types": ["bun-types"],
     "jsx": "react-jsx",
     "lib": ["es2015", "dom"]
-  }
+  },
+  "include": ["src/**/*"]
 }
