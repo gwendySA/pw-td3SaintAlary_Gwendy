@@ -1,5 +1,7 @@
 import City from '../models/City';
 import Parking from '../models/Parking';
+import Park from "../models/Park";
+import Spot from "../models/Spot";
 
 export const cities: City[] = [
     new City("Aix-en-Provence", "France", 43.533329, 5.43333),

@@ -8,3 +8,4 @@ export default class Spot {
         this.parking_id = parking_id;
     }
 }
+

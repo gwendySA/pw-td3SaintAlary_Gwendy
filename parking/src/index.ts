@@ -1,13 +1,12 @@
 import { Hono } from 'hono'
 import { serveStatic } from 'hono/bun'
 import { toSlug } from "./utils/toSlug"
-import { cities, parkings } from "./data/staticDatabase"//importer les tableaux parkings et cities
+import {cities, parkings, parks, spots} from "./data/staticDatabase"//importer les tableaux parkings et cities
 import { HomeController } from './controllers/HomeController'
 //import { trimTrailingSlash } from 'hono/trailing-slash'
 import { ReadAllCitiesController } from './controllers/ReadAllCitiesController'
 import cityRoutes from "./routes/cityRoutes";
 import parkingRoutes from "./routes/parkingRoutes";
-import {initializeDatabase} from "./data/parking.sqlite";
 
 
 const app = new Hono()
@@ -28,7 +27,7 @@ console.log(slug);
 // Log data
 console.log(parkings);
 console.log(cities);
+
 // Gestion de l'erreur a faire (étape 2.4)
-initializeDatabase();
 
 export default app;
