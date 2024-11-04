@@ -1,4 +1,3 @@
-// src/views/ReadAllCitiesView.tsx
 //generer du html
 import { html } from 'hono/html'
 import City from "../../models/City";

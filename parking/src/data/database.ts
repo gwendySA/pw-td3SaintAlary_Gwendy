@@ -1,6 +1,7 @@
-import { Database } from 'bun:sqlite';
+import { Database } from 'sqlite3';
+import path from 'path';
 
-// Initialiser la base de données SQLite
-const db = new Database('src/data/parking.sqlite');
+const dbPath = path.join(__dirname, 'parking.sqlite');//trouvé sur un forum d'aide
+const db = new Database(dbPath);
 
 export default db;

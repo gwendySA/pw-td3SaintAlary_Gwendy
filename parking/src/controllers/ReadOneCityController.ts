@@ -1,51 +1,28 @@
-// src/controllers/ReadOneCityController.ts
-import { Context } from 'hono'
-import { cities, parkings } from '../data/staticDatabase'
-import { html } from 'hono/html'
-import { Layout } from '../views/shared/Layout'
+import { Context } from 'hono';
+import { cities, parkings } from '../data/staticDatabase';
+import { Layout } from '../views/shared/Layout';
+import { ReadOneCityView } from '../views/city/ReadOneCityViews';
 
 export class ReadOneCityController {
     static async handle(c: Context) {
-        const slug = c.req.param('slug')
-        const city = cities.find(city => city.slug === slug)
+        const slug = c.req.param('slug');
+        const city = cities.find(city => city.slug === slug);
 
-        //fonction  inspirée d'internet
         if (!city) {
-            c.status(404); //HTTP 404
+            c.status(404); // HTTP 404
             return c.json({ error: 'Ville non trouvée' });
         }
 
         // Récupérer les parkings associés à la ville
-        const cityParkings = parkings.filter(parking => parking.city_id === city.id)
+        const cityParkings = parkings.filter(parking => parking.city_id === city.id);
 
-        const content = html`
-            <h2>Informations sur ${city.name}</h2>
-            <p>Pays : ${city.country}</p>
-            <p>Coordonnées : Latitude ${city.location.latitude}, Longitude ${city.location.longitude}</p>
-
-            <h2>Parkings à ${city.name}</h2>
-            ${cityParkings.length > 0 ? html`
-                <ul>
-                    ${cityParkings.map(parking => html`
-                        <li>
-                            <strong>${parking.name}</strong><br>
-                            Nombre de places : ${parking.numberOfSpots}<br>
-                            Tarif horaire : €${parking.hourlyRate.toFixed(2)}<br>
-                            Statut : ${parking.opened ? 'Ouvert' : 'Fermé'}
-                        </li>
-                    `)}
-                </ul>
-            ` : html`
-                <p>Aucun parking disponible dans cette ville.</p>
-            `}
-
-            <a href="/cities">Retour aux villes</a>
-        `
+        // Appel à la vue avec les données de la ville et les parkings
+        const content = ReadOneCityView({ city, cityParkings });
 
         return c.html(Layout({
             children: content,
             pageTitle: `EuroPark - ${city.name}`,
             headerTitle: city.name
-        }))
+        }));
     }
 }

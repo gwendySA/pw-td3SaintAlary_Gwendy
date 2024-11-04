@@ -1,4 +1,3 @@
-// src/routes/parkingRoutes.ts
 import { Hono } from 'hono'
 import { ParkingController } from '../controllers/ParkingCotntroller'
 
