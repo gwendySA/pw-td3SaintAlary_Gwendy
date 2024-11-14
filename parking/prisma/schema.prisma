@@ -1,0 +1,45 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"  // Assurez-vous que ce chemin est correct
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model City {
+  id       Int      @id @default(autoincrement())
+  name     String   @unique
+  slug     String   @unique
+  location String?
+  country  String
+  parkings Parking[]
+}
+
+model Parking {
+  id             Int     @id @default(autoincrement())
+  name           String  @unique
+  location       String
+  numberOfPlaces Int
+  opened         Boolean @default(true)
+  hourlyRate     Int
+  city           City    @relation(fields: [cityId], references: [id])
+  cityId         Int
+  spots          Spot[]
+}
+
+model Spot {
+  id       Int     @id @default(autoincrement())
+  parking  Parking @relation(fields: [parkingId], references: [id])
+  parkingId Int
+  parks    Park[]
+}
+
+model Park {
+  id                String @id
+  startedAt         DateTime
+  endedAt           DateTime?
+  vehicleNumberPlate String
+  spot              Spot   @relation(fields: [spotId], references: [id])
+  spotId            Int
+}
