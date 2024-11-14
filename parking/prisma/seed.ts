@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import {toSlug} from "../src/utils/toSlug";
 
 const prisma = new PrismaClient();
 
@@ -7,7 +8,7 @@ async function main() {
     const city1 = await prisma.city.create({
         data: {
             name: "Aix-en-Provence",
-            slug: "aix-en-provence",
+            slug: toSlug("Aix-en-Provence"),
             location: JSON.stringify({ latitude: 43.533329, longitude: 5.43333 }),
             country: "France",
         },
@@ -16,7 +17,7 @@ async function main() {
     const city2 = await prisma.city.create({
         data: {
             name: "La Spezia",
-            slug: "la-spezia",
+            slug: toSlug("La Spezia"),
             location: JSON.stringify({ latitude: 44.238366, longitude: 9.6912326 }),
             country: "Italie",
         },
@@ -25,7 +26,7 @@ async function main() {
     const city3 = await prisma.city.create({
         data: {
             name: "Aix-la-Chapelle",
-            slug: "aix-la-chapelle",
+            slug: toSlug("Aix-la-Chapelle"),
             location: JSON.stringify({ latitude: 50.776351, longitude: 6.083862 }),
             country: "Allemagne",
         },
@@ -34,7 +35,7 @@ async function main() {
     const city4 = await prisma.city.create({
         data: {
             name: "San Cristóbal de La Laguna",
-            slug: "san-cristobal-de-la-laguna",
+            slug: toSlug("San Cristóbal de La Laguna"),
             location: JSON.stringify({ latitude: 28.4871807, longitude: -16.313879 }),
             country: "Espagne",
         },
@@ -43,7 +44,7 @@ async function main() {
     const city5 = await prisma.city.create({
         data: {
             name: "Newcastle upon Tyne",
-            slug: "newcastle-upon-tyne",
+            slug: toSlug("Newcastle upon Tyne"),
             location: JSON.stringify({ latitude: 54.9738474, longitude: -1.6131572 }),
             country: "Angleterre",
         },
