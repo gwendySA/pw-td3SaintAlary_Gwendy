@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import { ParkingController } from '../controllers/ParkingCotntroller'
+import { ParkingController } from '../controllers/ParkingController'
 
 const parkingRoutes = new Hono()
 

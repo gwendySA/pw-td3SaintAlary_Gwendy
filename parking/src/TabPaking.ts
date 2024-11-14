@@ -1,6 +1,5 @@
 import { Database } from 'bun:sqlite';
 import City from "./models/City";
-
 const db = new Database('parking.sqlite');
 
 export function initializeDatabase() {
@@ -85,8 +84,9 @@ export function initializeDatabase() {
     }
 }
 
-//requete pour obtenir toutes les villes
+//requete pour obtenir toutes les villes // généré par IA
+
 export async function getAllCities(): Promise<City[]> {
     const results = db.query('SELECT * FROM cities').all();
-    return results.map((row: any) => new City( row.id,row.name, row.slug, row.parkingIds , row.country,row.location));
+    return results.map((row: any) => new City( row.id,row.name, row.slug, row.parkingIds , row.location,row.country));
 }

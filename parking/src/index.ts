@@ -2,20 +2,22 @@ import { Hono } from 'hono'
 import { serveStatic } from 'hono/bun'
 import { toSlug } from "./utils/toSlug"
 import {cities, parkings} from "./data/staticDatabase"//importer les tableaux parkings et cities
-import { HomeController } from './controllers/HomeController'
 //import { trimTrailingSlash } from 'hono/trailing-slash'
 import { ReadAllCitiesController } from './controllers/ReadAllCitiesController'
 import cityRoutes from "./routes/cityRoutes";
 import parkingRoutes from "./routes/parkingRoutes";
 import {initializeDatabase} from "./TabPaking";
+import {ParkingController} from "./controllers/ParkingController";
+import { HomeController } from './controllers/HomeController';
 
 
 const app = new Hono()
 
 app.use('/static/*', serveStatic({ root: './' }))
 //app.use('*', trimTrailingSlash())
-app.get('/', HomeController.handle)
-app.get('/cities', ReadAllCitiesController.handle)
+app.get('/parkings', ParkingController.readAll); // Exemple de méthode du contrôleur
+app.get('/', (c) => HomeController.handle(c)); // Utiliser HomeController.handle directement
+
 // Routes
 app.route('/cities', cityRoutes)
 app.route('/parkings', parkingRoutes)

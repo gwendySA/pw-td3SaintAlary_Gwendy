@@ -4,11 +4,11 @@ import Park from "../models/Park";
 import Spot from "../models/Spot";
 
 export const cities: City[] = [
-    new City(1, "Aix-en-Provence", "aix-en-provence", { latitude: 43.533329, longitude: 5.43333 }, "France"),
-    new City(2, "La Spezia", "la-spezia", { latitude: 44.238366, longitude: 9.6912326 }, "Italie"),
-    new City(3, "Aix-la-Chapelle", "aix-la-chapelle", { latitude: 50.776351, longitude: 6.083862 }, "Allemagne"),
-    new City(4, "San Cristóbal de La Laguna", "san-cristobal-de-la-laguna", { latitude: 28.4871807, longitude: -16.313879 }, "Espagne"),
-    new City(5, "Newcastle upon Tyne", "newcastle-upon-tyne", { latitude: 54.9738474, longitude: -1.6131572 }, "Angleterre")
+    new City(1, "Aix-en-Provence", "aix-en-provence", { latitude: 43.533329, longitude: 5.43333 }, "France",[]),
+    new City(2, "La Spezia", "la-spezia", { latitude: 44.238366, longitude: 9.6912326 }, "Italie",[]),
+    new City(3, "Aix-la-Chapelle", "aix-la-chapelle", { latitude: 50.776351, longitude: 6.083862 }, "Allemagne",[]),
+    new City(4, "San Cristóbal de La Laguna", "san-cristobal-de-la-laguna", { latitude: 28.4871807, longitude: -16.313879 }, "Espagne",[]),
+    new City(5, "Newcastle upon Tyne", "newcastle-upon-tyne", { latitude: 54.9738474, longitude: -1.6131572 }, "Angleterre",[])
 ];
 export const parkings: Parking[] = [
     new Parking("A", cities[0].id, {latitude: 43.533329, longitude: 5.43333}, 100, 4.5),

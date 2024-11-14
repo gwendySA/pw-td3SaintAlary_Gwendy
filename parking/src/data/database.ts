@@ -1,7 +1,3 @@
-import { Database } from 'sqlite3';
-import path from 'path';
+import { PrismaClient } from '@prisma/client';
 
-const dbPath = path.join(__dirname, 'parking.sqlite');//trouvé sur un forum d'aide
-const db = new Database(dbPath);
-
-export default db;
+export const db = new PrismaClient();

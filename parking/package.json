@@ -9,7 +9,10 @@
     "bun-types": "latest"
   },
   "dependencies": {
-    "hono": "^4.6.6"
+    "@prisma/client": "^5.22.0",
+    "hono": "^4.6.6",
+    "prisma": "^5.22.0",
+    "sqlite": "^5.1.1"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
