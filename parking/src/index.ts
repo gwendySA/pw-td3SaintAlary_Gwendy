@@ -9,6 +9,8 @@ import parkingRoutes from "./routes/parkingRoutes";
 import {initializeDatabase} from "./TabPaking";
 import {ParkingController} from "./controllers/ParkingController";
 import { HomeController } from './controllers/HomeController';
+import spotRoutes from "./routes/SpotRoutes";
+import SpotController from "./controllers/SpotController";
 
 
 const app = new Hono()
@@ -21,7 +23,11 @@ app.get('/', (c) => HomeController.handle(c)); // Utiliser HomeController.handle
 // Routes
 app.route('/cities', cityRoutes)
 app.route('/parkings', parkingRoutes)
-
+app.route('/spots', spotRoutes);
+// verification des routes ( pas comme indiqué avec POSTMANN etc)
+app.get('/spots', SpotController.getAllSpots);          // Route pour obtenir tous les spots
+app.get('/spots/:id', SpotController.getSpotById);      // Route pour obtenir un spot par son ID
+app.post('/spots', SpotController.addSpot);
 // toSlug
 const chaine = "JE SUis un cas d'école";
 const slug = toSlug(chaine);

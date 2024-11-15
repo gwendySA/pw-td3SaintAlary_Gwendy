@@ -1,6 +1,6 @@
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"  // Assurez-vous que ce chemin est correct
+  provider = "sqlite" // Vous pouvez changer selon votre base de données
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -8,38 +8,38 @@ generator client {
 }
 
 model City {
-  id       Int      @id @default(autoincrement())
-  name     String   @unique
-  slug     String   @unique
-  location String?
+  id       Int       @id @default(autoincrement())
+  name     String
+  slug     String    @unique
+  location String
   country  String
   parkings Parking[]
 }
 
 model Parking {
-  id             Int     @id @default(autoincrement())
-  name           String  @unique
-  location       String
+  id            Int      @id @default(autoincrement())
+  name          String
+  location      String
   numberOfPlaces Int
-  opened         Boolean @default(true)
-  hourlyRate     Int
-  city           City    @relation(fields: [cityId], references: [id])
-  cityId         Int
-  spots          Spot[]
+  hourlyRate    Float
+  cityId        Int
+  city          City     @relation(fields: [cityId], references: [id])
+  spots         Spot[]
 }
 
 model Spot {
-  id       Int     @id @default(autoincrement())
-  parking  Parking @relation(fields: [parkingId], references: [id])
+  id        Int    @id @default(autoincrement())
   parkingId Int
-  parks    Park[]
+  parking   Parking @relation(fields: [parkingId], references: [id])
+  park      Park?
 }
 
 model Park {
-  id                String @id
-  startedAt         DateTime
-  endedAt           DateTime?
-  vehicleNumberPlate String
-  spot              Spot   @relation(fields: [spotId], references: [id])
-  spotId            Int
+  id       Int     @id @default(autoincrement())
+  spotId   Int     @unique
+  spot     Spot    @relation(fields: [spotId], references: [id])
+  startedAt DateTime
+  endedAt   DateTime?
+  price     Float
+  paid      Boolean
 }

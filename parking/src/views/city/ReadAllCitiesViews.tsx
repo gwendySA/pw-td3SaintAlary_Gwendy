@@ -14,7 +14,7 @@ export const ReadAllCitiesView = ({ cities }: Props) => {
         ${cities.map(
             (city) => html`
             <li>
-              <a href="/cities/${city.slug}">${city.name}, ${city.country}</a>
+              <a href="/cities/${city.slug}">${city.name}</a> 
             </li>
           `
         )}

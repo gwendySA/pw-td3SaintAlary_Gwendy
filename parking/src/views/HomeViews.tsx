@@ -1,6 +1,6 @@
 import { html } from 'hono/html';
 
-export const HomeView = () => {
+export const HomeView = (p: { cities: any[] }) => {
     return html`
         <img src="/static/parking.png" alt="Parking">
         <p>Save time and money with EuroPark! Enjoy a 100% contactless parking experience for a short or long duration in our car parks in Europe!</p>

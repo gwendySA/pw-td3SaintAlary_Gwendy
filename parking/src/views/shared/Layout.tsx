@@ -1,12 +1,12 @@
 import { html } from "hono/html";
 
-type Props = {
-    children: any,
-    pageTitle: string,
-    headerTitle: string
-}
+type LayoutProps = {
+    children: any;
+    pageTitle: string;
+    headerTitle: string;
+};
 
-export const Layout = ({ children, pageTitle, headerTitle }: Props) => html`
+export const Layout = ({ children, pageTitle, headerTitle }: LayoutProps) => html`
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -18,7 +18,12 @@ export const Layout = ({ children, pageTitle, headerTitle }: Props) => html`
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
     </head>
     <body>
-    <h1>${headerTitle}</h1>
-    ${children}
+    <header>
+        <h1>${headerTitle}</h1>
+    </header>
+    <main>
+        ${children}
+    </main>
     </body>
-    </html>`;
+    </html>
+`;

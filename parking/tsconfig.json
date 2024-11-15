@@ -1,11 +1,18 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "types": ["hono"],
-    "types": ["bun-types"],
-    "jsx": "react-jsx",
-    "lib": ["es2015", "dom"]
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "target": "ES2020",                 // Définit la cible JavaScript
+    "module": "commonjs",               // Utilisé pour le support avec Node.js
+    "esModuleInterop": true,            // Facilite l'import de modules CommonJS
+    "moduleResolution": "node",         // Permet la résolution de modules Node.js
+    "jsx": "react-jsx",                 // Si vous utilisez React
+    "lib": ["es2015", "dom"],           // Bibliothèques standards incluses
+    "types": ["hono", "bun-types"],     // Types ajoutés pour des bibliothèques spécifiques
+    "skipLibCheck": true,               // Ignore les erreurs dans les types des bibliothèques
+    "forceConsistentCasingInFileNames": true,  // Force la cohérence des noms de fichiers
+    "resolveJsonModule": true,          // Permet d'importer des fichiers JSON
+    "outDir": "./dist"  // Répertoire de sortie pour le code compilé
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "seeds.ts"],  // Inclure le dossier src et le fichier seeds.ts
+  "exclude": ["node_modules", "**/*.spec.ts"]  // Exclure les modules et fichiers de test
 }

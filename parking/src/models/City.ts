@@ -23,11 +23,6 @@ export default class City {
         if (!this.parkingIds) {
             this.parkingIds = [];
         }
-
-        // Si parkingId n'est pas déjà dans le tableau on l'ajoute
-        if (!this.parkingIds.includes(parkingId)) {
-            this.parkingIds.push(parkingId);
-        }
     }
 
 

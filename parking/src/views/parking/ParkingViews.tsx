@@ -25,7 +25,6 @@ type DetailProps = {
 
 export const ParkingDetailView = ({ parking }: DetailProps) => {
     return html`
-        <h2>${parking.name}</h2>
         <p>Nombre de places : ${parking.numberOfSpots}</p>
         <p>Tarif horaire : €${parking.hourlyRate.toFixed(2)}</p>
         <p>Statut : ${parking.opened ? 'Ouvert' : 'Fermé'}</p>
