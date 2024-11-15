@@ -18,7 +18,7 @@ export default class City {
         this.parkingIds = parkingIds;
     }
 
-    addParking(parkingId: number): void {
+    addParking(parkingId: string): void {
         // Si parkingIds n'est pas encore défini, on le créer comme un tableau vide
         if (!this.parkingIds) {
             this.parkingIds = [];

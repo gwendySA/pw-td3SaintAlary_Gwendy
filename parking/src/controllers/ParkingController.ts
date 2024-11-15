@@ -1,5 +1,5 @@
 import { Context } from 'hono';
-import { getAllParkings, getParkingById } from '../TabPaking'; // Importer les services pour les données
+import {getAllParking, getOneParking} from '../TabPaking'; // Importer les services pour les données
 import { Layout } from '../views/shared/Layout';
 import { ParkingListView, ParkingDetailView } from '../views/parking/ParkingViews'; // Importer les vues
 
@@ -7,7 +7,7 @@ export class ParkingController {
     // Récupérer la liste des parkings
     static async readAll(c: Context) {
         try {
-            const parkings = await getAllParkings(); // Récupérer les parkings depuis la base de données
+            const parkings = await getAllParking(); // Récupérer les parkings depuis la base de données
 
             if (parkings.length === 0) {
                 c.status(404); // HTTP 404
@@ -31,7 +31,7 @@ export class ParkingController {
     static async readOne(c: Context) {
         try {
             const id = c.req.param('id').trim(); // Nettoyer l'ID des espaces inutiles
-            const parking = await getParkingById(id); // Récupérer un parking spécifique
+            const parking = await getOneParking(id); // Récupérer un parking spécifique
 
             if (!parking) {
                 c.status(404); // HTTP 404
