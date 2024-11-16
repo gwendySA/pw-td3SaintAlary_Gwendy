@@ -1,3 +1,4 @@
+// on ne se sert pas de ce fichier car on a pas remplis les données avec les spots 
 import { Context } from 'hono';
 import { PrismaClient } from '@prisma/client';
 import Spot from '../models/Spot';
