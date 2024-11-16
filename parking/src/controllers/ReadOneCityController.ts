@@ -13,7 +13,7 @@ export class ReadOneCityController {
             return c.json({ error: 'Ville non trouvée' });
         }
 
-        // Récupérer les parkings associés à la ville
+        // Récupérer les parkings associés à la ville ( aide de forums)
         const cityParkings = parkings.filter(parking => parking.city_id === city.id);
 
         // Appel à la vue avec les données de la ville et les parkings
