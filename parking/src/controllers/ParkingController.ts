@@ -1,3 +1,4 @@
+// Pas d'utilisation de prisma mais de sqlite uniquement
 import { Context } from 'hono';
 import {getAllParking, getOneParking} from '../TabPaking'; // Importer les services pour les données
 import { Layout } from '../views/shared/Layout';
@@ -27,7 +28,7 @@ export class ParkingController {
         }
     }
 
-    // Récupérer le détail d'un parking
+    // Récupérer le descriptif d'un parking
     static async readOne(c: Context) {
         try {
             const id = c.req.param('id').trim(); // Nettoyer l'ID des espaces inutiles
@@ -38,7 +39,7 @@ export class ParkingController {
                 return c.json({ error: 'Parking non trouvé' });
             }
 
-            const content = ParkingDetailView({ parking }); // Utiliser la vue pour le détail d'un parking
+            const content = ParkingDetailView({ parking }); // Utiliser la vue pour le descriptif d'un parking
 
             return c.html(Layout({
                 children: content,
