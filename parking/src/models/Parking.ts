@@ -1,3 +1,4 @@
+// constructeur de parking
 import { GPS } from "../types/GPS";
 import Spot from "./Spot";
 
