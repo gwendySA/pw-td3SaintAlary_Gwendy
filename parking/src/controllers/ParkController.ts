@@ -1,26 +1,26 @@
-// src/controllers/ParkController.ts
+// Controlleur des park avce prisma et sqlite ( on ne s'en sert jamais )
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient(); // Initialisation de Prisma
 
 class ParkController {
-    // Méthode pour récupérer tous les parcs
+    // Méthode pour récupérer tous les park
     static async getAllParks(req, res) {
         try {
             const parks = await prisma.park.findMany();  // Utilisation de Prisma pour récupérer les parcs
             res.json(parks);
         } catch (error) {
-            console.error(error);
+            console.error(error);//gestion des erreurs
             res.status(500).json({ error: "Erreur lors de la récupération des parcs." });
         }
     }
 
-    // Méthode pour récupérer un parc par son ID
+    // Méthode pour récupérer un parking par son ID
     static async getParkById(req, res) {
         const { id } = req.params;
         try {
             const park = await prisma.park.findUnique({
-                where: { id: Number(id) }  // Recherche du parc par son ID avec Prisma
+                where: { id: Number(id) }  // Recherche du park par son ID avec Prisma
             });
             if (park) {
                 res.json(park);
@@ -33,7 +33,7 @@ class ParkController {
         }
     }
 
-    // Méthode pour ajouter un nouveau parc
+    // Méthode pour ajouter un nouveau park
     static async addPark(req, res) {
         const { spotId, startedAt, endedAt, price, paid } = req.body;
 
