@@ -1,3 +1,4 @@
+// Pour instancier les obejts city et parking
 import City from '../models/City';
 import Parking from '../models/Parking';
 import Park from "../models/Park";
@@ -21,7 +22,7 @@ export const parkings: Parking[] = [
     new Parking('G', 'Parking F',cities[4].id, {latitude: 54.9738474, longitude: -1.6131572}, 60, 2.40),
     new Parking('H','Parking G', cities[4].id, {latitude: 54.9738474, longitude: -1.6131572}, 90, 3.20),
 ];
-
+// associer les parkings aux villes 
 parkings.forEach(parking => {
     const city = cities.find(city => city.id === parking.city_id);
     if (city) {
