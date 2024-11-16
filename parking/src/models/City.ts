@@ -1,3 +1,4 @@
+// constructeur et ajout de parking associé
 import {GPS} from "../types/GPS";
 
 export default class City {
