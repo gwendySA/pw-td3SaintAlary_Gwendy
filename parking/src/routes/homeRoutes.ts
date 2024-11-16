@@ -1,8 +1,5 @@
-// src/routes.ts (ou un fichier similaire de configuration des routes)
+// on a pas eu beoin de developper ce fichier 
 import { Hono } from 'hono';
 
 const app = new Hono();
-
-// Appeler la méthode statique handle sans instancier HomeController
-
 export default app;
