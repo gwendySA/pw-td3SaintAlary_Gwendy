@@ -33,11 +33,9 @@ const chaine = "JE SUis un cas d'école";
 const slug = toSlug(chaine);
 console.log(slug);
 
-// Log data
+// Log des données
 console.log(parkings);
 console.log(cities);
 // Appel de la fonction pour initialiser la base de données
 initializeDatabase();
-// Gestion de l'erreur a faire (étape 2.4)
-
 export default app;
