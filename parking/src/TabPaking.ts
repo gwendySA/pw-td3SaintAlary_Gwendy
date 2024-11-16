@@ -11,11 +11,11 @@ export function initializeDatabase() {
         // Créer la table "cities"
         db.run(`
             CREATE TABLE IF NOT EXISTS "cities" (
-                                                    "id" INTEGER PRIMARY KEY,
-                                                    "name" TEXT NOT NULL UNIQUE,
-                                                    "slug" TEXT NOT NULL UNIQUE,
-                                                    "location" TEXT,
-                                                    "country" TEXT NOT NULL
+                    "id" INTEGER PRIMARY KEY,
+                    "name" TEXT NOT NULL UNIQUE,
+                    "slug" TEXT NOT NULL UNIQUE,
+                    "location" TEXT,
+                    "country" TEXT NOT NULL
             );
         `);
 
@@ -25,7 +25,7 @@ export function initializeDatabase() {
                                                       "id" TEXT PRIMARY KEY,  // ID en texte
                                                       "name" TEXT NOT NULL UNIQUE,
                                                       "location" TEXT,
-                                                      "numberOfPlaces" INTEGER NOT NULL,
+                                                      "numberOfSpots" INTEGER NOT NULL,
                                                       "opened" INTEGER NOT NULL DEFAULT 1,
                                                       "hourlyRate" REAL NOT NULL,
                                                       "city_id" INTEGER NOT NULL,
@@ -58,16 +58,16 @@ export function initializeDatabase() {
         // Insertion des données dans la table "cities"
         db.run(`
             INSERT INTO cities (id, name, slug, location, country) VALUES
-                                                                       (1, 'Aix-en-Provence', 'aix-en-provence', '{"latitude": 43.533329, "longitude": 5.43333}', 'France'),
-                                                                       (2, 'La Spezia', 'la-spezia', '{"latitude": 44.238366, "longitude": 9.6912326}', 'Italie'),
-                                                                       (3, 'Aix-la-Chapelle', 'aix-la-chapelle', '{"latitude": 50.776351, "longitude": 6.083862}', 'Allemagne'),
-                                                                       (4, 'San Cristóbal de La Laguna', 'san-cristobal-de-la-laguna', '{"latitude": 28.4871807, "longitude": -16.313879}', 'Espagne'),
-                                                                       (5, 'Newcastle upon Tyne', 'newcastle-upon-tyne', '{"latitude": 54.9738474, "longitude": -1.6131572}', 'Angleterre');
+            (1, 'Aix-en-Provence', 'aix-en-provence', '{"latitude": 43.533329, "longitude": 5.43333}', 'France'),
+            (2, 'La Spezia', 'la-spezia', '{"latitude": 44.238366, "longitude": 9.6912326}', 'Italie'),
+            (3, 'Aix-la-Chapelle', 'aix-la-chapelle', '{"latitude": 50.776351, "longitude": 6.083862}', 'Allemagne'),
+            (4, 'San Cristóbal de La Laguna', 'san-cristobal-de-la-laguna', '{"latitude": 28.4871807, "longitude": -16.313879}', 'Espagne'),
+            (5, 'Newcastle upon Tyne', 'newcastle-upon-tyne', '{"latitude": 54.9738474, "longitude": -1.6131572}', 'Angleterre');
         `);
 
         // Insertion des données dans la table "parkings"
         db.run(`
-            INSERT INTO parkings (id, name, location, numberOfPlaces, opened, hourlyRate, city_id) VALUES
+            INSERT INTO parkings (id, name, location, numberOfSpots, opened, hourlyRate, city_id) VALUES
             ('A', 'Parking A', '{"latitude": 43.533329, "longitude": 5.43333}', 100, 1, 4.5, 1),
             ('B', 'Parking B', '{"latitude": 44.238366, "longitude": 9.6912326}', 50, 1, 3, 2),
             ('C', 'Parking C', '{"latitude": 44.238366, "longitude": 9.6912326}', 80, 1, 2.5, 2),
