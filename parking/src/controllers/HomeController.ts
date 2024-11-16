@@ -1,4 +1,4 @@
-// src/controllers/HomeController.ts
+//controlleur pour la page d'acceuil
 import { Context } from 'hono';
 import { PrismaClient } from '@prisma/client'; // Importer Prisma
 import { Layout } from '../views/shared/Layout'; // Importer le Layout
@@ -16,7 +16,7 @@ export class HomeController {
             // Créer le contenu de la page d'accueil, en passant les villes récupérées à la vue
             const content = HomeView({ cities });
 
-            // Retourner la réponse HTML avec le Layout, en injectant le contenu
+            // Retourner la réponse HTML avec le Layout en injectant le contenu
             return c.html(Layout({
                 children: content,
                 pageTitle: "Welcome to EuroPark",
