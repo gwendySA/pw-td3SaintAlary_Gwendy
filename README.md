@@ -9,7 +9,7 @@ Certaines étapes ont nécessité de l'aide extérieure ( vous , camarades , goo
 
 Etape 1 : finie en entier
 
-Etape 2 : nous ne sommes pas sure d'avoir réussi la gestion des erreurs ( on a fait quelque chose avec des try/catch mais on ne sait pas si c'était ceci).
+Etape 2 : nous ne sommes pas sure d'avoir réussi la gestion des erreurs ( on a fait quelque chose avec des try/catch mais on ne sait pas si c'était ceci). Nous n'avons pas utilisé postmann jusqu'au bout. Seulement sur 1 classe pour voir le résultat attendu.
 
 Etape 3 : l'utilisation de SQLite à été vraiment compliqué. Néanmoins, une fois compris ça a été. Ce qui été dur c'était de comprendre où mettre les données et quoi en faire.
 
