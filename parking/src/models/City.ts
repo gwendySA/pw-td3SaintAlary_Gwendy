@@ -1,27 +1,30 @@
-import { toSlug } from "../utils/toSlug";
-import {generateRandomNumberId} from "../utils/generateRandomNumberld";
-import { GPS } from "../types/GPS";
+// constructeur et ajout de parking associé
+import {GPS} from "../types/GPS";
 
 export default class City {
     id: number;
     name: string;
     slug: string;
-    parkingIds: Array<number>;
-    country: string;
     location: GPS;
+    country: string;
+    parkingIds: number[];
 
-    constructor(name: string, country: string, latitude: number, longitude: number) {
-        this.id = generateRandomNumberId();
+
+    constructor(id: number, name: string, slug: string, location: GPS, country: string, parkingIds: number[]) {
+        this.id = id;
         this.name = name;
-        this.slug = toSlug(name);
-        this.parkingIds = [];
+        this.slug = slug;
+        this.location = location;
         this.country = country;
-        this.location = { latitude, longitude };
+        this.parkingIds = parkingIds;
     }
 
-    addParking(parkingId: number): void {
-        if (!this.parkingIds.includes(parkingId)) {
-            this.parkingIds.push(parkingId);
+    addParking(parkingId: string): void {
+        // Si parkingIds n'est pas encore défini, on le créer comme un tableau vide
+        if (!this.parkingIds) {
+            this.parkingIds = [];
         }
     }
+
+
 }

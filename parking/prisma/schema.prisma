@@ -1,0 +1,45 @@
+datasource db {
+  provider = "sqlite" // Vous pouvez changer selon votre base de données
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model City {
+  id       Int       @id @default(autoincrement())
+  name     String
+  slug     String    @unique
+  location String
+  country  String
+  parkings Parking[]
+}
+
+model Parking {
+  id            Int      @id @default(autoincrement())
+  name          String
+  location      String
+  numberOfPlaces Int
+  hourlyRate    Float
+  cityId        Int
+  city          City     @relation(fields: [cityId], references: [id])
+  spots         Spot[]
+}
+
+model Spot {
+  id        Int    @id @default(autoincrement())
+  parkingId Int
+  parking   Parking @relation(fields: [parkingId], references: [id])
+  park      Park?
+}
+
+model Park {
+  id       Int     @id @default(autoincrement())
+  spotId   Int     @unique
+  spot     Spot    @relation(fields: [spotId], references: [id])
+  startedAt DateTime
+  endedAt   DateTime?
+  price     Float
+  paid      Boolean
+}
