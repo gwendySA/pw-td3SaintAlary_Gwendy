@@ -12,6 +12,7 @@ Etape 1 : finie en entier
 Etape 2 : nous ne sommes pas sure d'avoir réussi la gestion des erreurs ( on a fait quelque chose avec des try/catch mais on ne sait pas si c'était ceci). Nous n'avons pas utilisé postmann jusqu'au bout. Seulement sur 1 classe pour voir le résultat attendu.
 
 Etape 3 : l'utilisation de SQLite à été vraiment compliqué. Néanmoins, une fois compris ça a été. Ce qui été dur c'était de comprendre où mettre les données et quoi en faire.
+On a eu un prolème avec les ID de parking ( qui devaient être généré aléatoirement) : la page ne trouvait plus les parkings car on ne sait pas liées des choses aléatoires avec sql. Pour résoudre on a décidé de ne plus se servir de cette méthode aléatoire et d'initialiser des id fixes.
 
 Nous avons quand même voulu essayer prisma. Nous avons réussi et avons trouvé ça beaucoup plus simple que SQLite parce qu'on pouvait " voir " ce que l'on faisait. Vous ne trouverez son utilisation que sur spot et park car on a voulu "laisser une trace " de ce qu'on avait fait précédemment 
 
